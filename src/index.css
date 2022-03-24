@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.header {
+  top: 0;
+  position: sticky;
+  z-index: 100;
+}
