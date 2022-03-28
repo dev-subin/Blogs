@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
-import MouseParticles from "react-mouse-particles";
 
 const UserContent = ({ data, user }) => {
   const { id } = useParams();
@@ -9,11 +8,10 @@ const UserContent = ({ data, user }) => {
 
   return (
     <div className="flex justify-center items-center  overflow-scroll  border-2 bg-gray-100 min-h-screen ">
-      <MouseParticles g={1} color="random" cull="col,image-wrapper" />
       {mapData.map(({ title, content, author, image, createdAt }) => {
         return (
           <div className="">
-            <div className="border-gray-400 text-2xl w-[400px] md:w-[700px]  bg-white rounded-lg ">
+            <div className="border-gray-400 text-2xl w-[400px] md:w-[900px]  bg-white rounded-lg ">
               <div>
                 <div className="w-full p-5">
                   <img src={image} alt="" />
@@ -38,27 +36,27 @@ const UserContent = ({ data, user }) => {
                   />
                 </p>
               </div>
-              <div className="flex">
-                {user?.displayName ? (
-                  <img
-                    src={
-                      user.photoURL ||
-                      "https://avatars.githubusercontent.com/u/35"
-                    }
-                    alt=""
-                    className="border-2 border-red-900 rounded-full w-8 h-8 ml-12 m-2"
-                  />
-                ) : null}
+              <div className="flex flex-col md:flex-row">
                 <div className="flex">
+                  {user?.displayName ? (
+                    <img
+                      src={
+                        user.photoURL ||
+                        "https://avatars.githubusercontent.com/u/35"
+                      }
+                      alt=""
+                      className="border-2 border-red-900 rounded-full w-8 h-8 ml-12 m-2"
+                    />
+                  ) : null}
                   <div>
                     <p className="p-2 text-black font-bold">
                       Authored By :{" "}
                       <span className="text-red-400 underline">{author}</span>
                     </p>
                   </div>
-                  <div>
-                    <p className="p-3 text-lg font-bold">{createdAt}</p>
-                  </div>
+                </div>
+                <div>
+                  <p className="p-3 text-lg font-bold">{createdAt}</p>
                 </div>
               </div>
             </div>

@@ -2,18 +2,16 @@ import React from "react";
 import { Plane } from "react-loader-spinner";
 import { useHistory } from "react-router-dom";
 import ScrollToTop from "react-scroll-to-top";
-import MouseParticles from "react-mouse-particles";
 
-function Home({ data }) {
+function Home({ data, user }) {
   const history = useHistory();
   return (
     <div className="flex justify-center items-center flex-col border-2 bg-gray-100 dark:bg-[#012346] min-h-screen overflow-hidden">
-      <MouseParticles g={1} color="random" cull="col,image-wrapper" />
       <ScrollToTop smooth top={100} color="red" width="35px" />
       {data.length > 0 ? (
         data.map(({ title, author, image, createdAt }) => (
           <div className="mt-4">
-            <div className="  border-2 text-2xl w-[400px] md:w-[700px] bg-white rounded-xl cursor-pointer h-auto md:h-auto  ">
+            <div className="  border-2 text-2xl w-[400px] md:w-[900px] bg-white rounded-xl cursor-pointer h-auto md:h-auto  ">
               <div onClick={() => history.push(`/${author}/post/${title}`)}>
                 <div className="w-full p-5 min-h-56 rounded-xl">
                   <img
@@ -29,14 +27,28 @@ function Home({ data }) {
                   </h1>
                 </div>
               </div>
-              <div className="flex">
+              <div className="flex md:flex-row flex-col">
                 <div onClick={() => history.push(`/${author}/posts`)}>
-                  <p className="p-2 text-black font-bold text-lg md:text-xl">
-                    Authored By :{" "}
-                    <span className="text-red-400 hover:underline italic">
-                      {author}
-                    </span>
-                  </p>
+                  <div className="flex">
+                    <div>
+                      <img
+                        src={
+                          user.photoURL ||
+                          "https://avatars.githubusercontent.com/u/35"
+                        }
+                        alt=""
+                        className="border-2 border-red-900 rounded-full w-8 h-8 ml-12 m-2"
+                      />
+                    </div>
+                    <div>
+                      <p className="p-2 text-black font-bold text-lg md:text-xl">
+                        Authored By :{" "}
+                        <span className="text-red-400 hover:underline italic">
+                          {author}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <p className="p-3 text-lg font-bold">{createdAt}</p>

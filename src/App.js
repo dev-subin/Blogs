@@ -45,7 +45,7 @@ function App() {
       </Route>
       <Route path={"/"} exact render={() => <Redirect to="/home" />} />
       <Route path={"/home"} exact>
-        <Home data={posts} />
+        <Home data={posts} user={loggedUser} />
       </Route>
       <Route path={"/createpost"}>
         {loggedUser.displayName ? (

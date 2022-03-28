@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import { Plane } from "react-loader-spinner";
 import MdEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
-import MouseParticles from "react-mouse-particles";
 
 function CreatePost({ loggedInUser }) {
   const [heading, setHeading] = useState("");
@@ -57,7 +56,6 @@ function CreatePost({ loggedInUser }) {
 
   return (
     <div className="flex justify-center items-center h-screen flex-col bg-gray-100">
-      <MouseParticles g={1} color="random" cull="col,image-wrapper" />
       <div className="mb-12">
         <h1 className="text-left text-2xl md:text-5xl text-black font-bold ">
           Create Post

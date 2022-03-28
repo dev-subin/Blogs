@@ -1,12 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import MouseParticles from "react-mouse-particles";
 
 const Dashboard = ({ data }) => {
   const history = useHistory();
   return (
     <div className="h-screen flex justify-center items-center flex-col bg-gray-100 overflow-scroll">
-      <MouseParticles g={1} color="random" cull="col,image-wrapper" />
       {data.map(({ title }) => {
         return (
           <div

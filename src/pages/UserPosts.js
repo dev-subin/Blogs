@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import ScrollToTop from "react-scroll-to-top";
 import MDEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
-import MouseParticles from "react-mouse-particles";
 
 const UserPosts = ({ data, user }) => {
   console.log(user);
@@ -14,12 +13,11 @@ const UserPosts = ({ data, user }) => {
 
   return (
     <div className="flex justify-center items-center flex-col border-2 bg-gray-100 min-h-screen overflow-x-scroll">
-      <MouseParticles g={1} color="random" cull="col,image-wrapper" />
       <ScrollToTop smooth top={100} color="red" width="35px" />
       {_mapData.length > 0 ? (
         _mapData.map(({ title, content, author, image, createdAt }) => (
           <div className="mt-4">
-            <div className="border-gray-400 text-2xl w-[400px] md:w-[700px] bg-white shadow-lg  rounded-xl">
+            <div className="border-gray-400 text-2xl w-[400px] md:w-[900px] bg-white shadow-lg  rounded-xl">
               <div>
                 <div className="w-full p-5">
                   <img src={image} alt="" />
@@ -46,7 +44,7 @@ const UserPosts = ({ data, user }) => {
                   />
                 </p>
               </div>
-              <div className="flex">
+              <div className="flex flex-col md:flex-row">
                 <img
                   src={
                     user.photoURL ||
@@ -55,16 +53,14 @@ const UserPosts = ({ data, user }) => {
                   alt=""
                   className="border-2 border-red-900 rounded-full w-8 h-8 ml-12 m-2"
                 />
-                <div className="flex">
-                  <div>
-                    <p className="p-2 text-black font-bold">
-                      Authored By :{" "}
-                      <span className="text-red-400 underline">{author}</span>
-                    </p>
-                  </div>
-                  <div>
-                    <p className="p-3 text-lg font-bold">{createdAt}</p>
-                  </div>
+                <div>
+                  <p className="p-2 text-black font-bold">
+                    Authored By :{" "}
+                    <span className="text-red-400 underline">{author}</span>
+                  </p>
+                </div>
+                <div>
+                  <p className="p-3 text-lg font-bold">{createdAt}</p>
                 </div>
               </div>
             </div>

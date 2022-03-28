@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { auth, googleAuth } from "../FirebaseConfig/Firebase";
 import { useHistory } from "react-router-dom";
-import MouseParticles from "react-mouse-particles";
 
 function Login({ setLoggedInUser }) {
   const [email, setEmail] = useState("");
@@ -65,7 +64,6 @@ function Login({ setLoggedInUser }) {
   };
   return (
     <div className="flex justify-center items-center flex-col h-[100vh] bg-gray-100 ">
-      <MouseParticles g={1} color="random" cull="col,image-wrapper" />
       {error && (
         <div className=" bg-white  w-96 h-auto mb-5 rounded-lg">
           <p className="text-center pt-2 text-red-500 text-lg font-bold">
