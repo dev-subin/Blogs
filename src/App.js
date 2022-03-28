@@ -16,6 +16,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const dispatchLoggedInUser = (props) => {
     setLoggedUser(props);
+    console.log(setLoggedUser);
   };
 
   useEffect(() => {
@@ -33,10 +34,14 @@ function App() {
     <Router>
       <Header user={loggedUser} setLoggedInUser={setLoggedUser} />
       <Route path="/:id/posts">
-        <UserPosts data={posts} />
+        <UserPosts data={posts} user={loggedUser} />
       </Route>
       <Route exact path="/:id/post/:blog">
-        <SinglePost data={posts} />
+        <SinglePost
+          data={posts}
+          user={loggedUser}
+          setLoggedInUser={setLoggedUser}
+        />
       </Route>
       <Route path={"/"} exact render={() => <Redirect to="/home" />} />
       <Route path={"/home"} exact>
@@ -63,7 +68,7 @@ function App() {
         )}
       </Route>
       <Route path={"/:id/post"}>
-        <UserContent data={userData} />
+        <UserContent data={posts} user={loggedUser} posts={posts} />
       </Route>
     </Router>
   );

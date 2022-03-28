@@ -6,3 +6,6 @@
   position: sticky;
   z-index: 100;
 }
+body {
+  background-color: "white";
+}
