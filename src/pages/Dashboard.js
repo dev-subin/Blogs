@@ -5,6 +5,9 @@ const Dashboard = ({ data }) => {
   const history = useHistory();
   return (
     <div className="h-screen flex justify-center items-center flex-col bg-gray-100 overflow-scroll">
+      <h1 className="font-bold text-2xl bg-red-400 p-5 rounded-lg text-white">
+        No data found!....!🙂
+      </h1>
       {data.map(({ title }) => {
         return (
           <div

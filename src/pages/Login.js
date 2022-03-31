@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth, googleAuth } from "../FirebaseConfig/Firebase";
 import { useHistory } from "react-router-dom";
+import { Plane } from "react-loader-spinner";
 
 function Login({ setLoggedInUser }) {
   const [email, setEmail] = useState("");
@@ -8,6 +9,7 @@ function Login({ setLoggedInUser }) {
   const [error, setError] = useState("");
   const history = useHistory();
   const handleSubmit = (e) => {
+    <Plane ariaLabel="loading-indicator" />;
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
@@ -30,6 +32,7 @@ function Login({ setLoggedInUser }) {
       });
   };
   const handleClick = () => {
+    <Plane ariaLabel="loading-indicator" />;
     auth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
@@ -52,6 +55,7 @@ function Login({ setLoggedInUser }) {
   };
 
   const googleLogin = () => {
+    <Plane ariaLabel="loading-indicator" />;
     auth.signInWithPopup(googleAuth).then((res) => {
       if (res.user) {
         setLoggedInUser(res.user);

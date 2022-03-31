@@ -22,7 +22,7 @@ function Home({ data, user }) {
                   />
                 </div>
                 <div>
-                  <h1 className="text-black text-center font-bold text-xl md:text-2xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
+                  <h1 className="text-black text-center font-bold text-xl md:text-5xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
                     {title}
                   </h1>
                 </div>

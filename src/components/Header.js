@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import { auth } from "../FirebaseConfig/Firebase";
 
 const Header = ({ user, setLoggedInUser }) => {
-  console.log(user);
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
 
