@@ -5,11 +5,11 @@ import ScrollToTop from "react-scroll-to-top";
 import MDEditor from "@uiw/react-md-editor";
 
 const SinglePost = ({ data, user }) => {
-  console.log(user);
+  console.log(data);
   const { blog } = useParams();
 
   const _mapData = data.filter((res) => res.title === blog);
-  // console.log(_mapData);
+  console.log(_mapData);
   return (
     <div className="flex justify-center items-center border-2 bg-gray-100 min-h-screen ">
       <ScrollToTop smooth top={100} color="red" width="35px" />

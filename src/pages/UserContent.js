@@ -5,6 +5,7 @@ import MDEditor from "@uiw/react-md-editor";
 const UserContent = ({ data, user }) => {
   const { id } = useParams();
   const mapData = data.filter((res) => res.title === id);
+  console.log(mapData);
 
   return (
     <div className="flex justify-center items-center  overflow-scroll  border-2 bg-gray-100 min-h-screen ">

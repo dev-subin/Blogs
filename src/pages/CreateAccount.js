@@ -18,7 +18,7 @@ function CreateAccount({ setLoggedInUser }) {
   const handleSubmit = (e) => {
     <Plane ariaLabel="loading-indicator" />;
     e.preventDefault();
-    if (username.length == 0) {
+    if (username.length === 0) {
       setUserError("Username is empty...");
       setTimeout(() => {
         setUserError("");
@@ -26,19 +26,19 @@ function CreateAccount({ setLoggedInUser }) {
     } else {
       setUsername();
     }
-    if (email.length == 0) {
+    if (email.length === 0) {
       setEmailError("Email is empty...");
       setTimeout(() => {
         setEmailError("");
       }, 3000);
     }
-    if (phone.length == 0) {
+    if (phone.length === 0) {
       setPhoneError("Phone number is empty...");
       setTimeout(() => {
         setPhoneError("");
       }, 3000);
     }
-    if (password.length == 0) {
+    if (password.length === 0) {
       setPasswordError("Password is empty...");
       setTimeout(() => {
         setPasswordError("");
