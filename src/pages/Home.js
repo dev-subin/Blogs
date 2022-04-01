@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import ScrollToTop from "react-scroll-to-top";
 
 function Home({ data, user }) {
+  console.log(data);
   const history = useHistory();
   return (
     <div className="flex justify-center items-center flex-col border-2 bg-gray-200 dark:bg-[#012346] min-h-screen overflow-hidden">

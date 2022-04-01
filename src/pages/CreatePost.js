@@ -6,6 +6,7 @@ import MdEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
 
 function CreatePost({ loggedInUser }) {
+  console.log(loggedInUser);
   const [heading, setHeading] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
@@ -27,6 +28,8 @@ function CreatePost({ loggedInUser }) {
       content: content,
       author: loggedInUser.displayName,
       image: image,
+      createdAt: date.toDateString(),
+      userImage: loggedInUser.photoURL,
     });
     setHeading("");
     setContent("");

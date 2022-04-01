@@ -18,7 +18,7 @@ const SinglePoster = ({ data, user }) => {
           <div className="">
             <div className="border-gray-400 text-2xl w-[400px] md:w-[900px] bg-white shadow-lg  rounded-xl">
               <div>
-                <div className="w-full p-5">
+                <div className="w-full p-5 md:flex md:justify-center md:items-center">
                   <img src={image} alt="" className="rounded-lg" />
                 </div>
                 <div>
