@@ -17,11 +17,16 @@ const UserPosts = ({ data, user }) => {
           <div className="mt-4">
             <div className="border-gray-400 text-2xl w-[400px] md:w-[900px] bg-white shadow-lg  rounded-xl">
               <div>
-                <div className="w-full p-5 ">
-                  <img src={image} alt="" height="200px" />
+                <div className="w-full p-5 md:flex md:justify-center md:items-center">
+                  <img
+                    src={image}
+                    alt=""
+                    height="200px"
+                    className="rounded-lg"
+                  />
                 </div>
                 <div>
-                  <h1 className="text-black text-center font-bold text-xl md:text-2xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
+                  <h1 className="text-black text-center font-bold text-xl md:text-5xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
                     {title}
                   </h1>
                 </div>

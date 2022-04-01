@@ -14,11 +14,11 @@ const UserContent = ({ data, user }) => {
           <div className="">
             <div className="border-gray-400 text-2xl w-[400px] md:w-[900px]  bg-white rounded-lg ">
               <div>
-                <div className="w-full p-5">
-                  <img src={image} alt="" />
-                </div>
+                <div className="w-full p-5 md:flex md:justify-center md:items-center">
+                  <img src={image} alt="" className="rounded-lg" />
+                </div>{" "}
                 <div>
-                  <h1 className="text-black text-center font-bold text-xl md:text-2xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
+                  <h1 className="text-black text-center font-bold text-xl md:text-5xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
                     {title}
                   </h1>
                 </div>
@@ -37,12 +37,12 @@ const UserContent = ({ data, user }) => {
                   />
                 </p>
               </div>
-              <div className="flex flex-col md:flex-row">
+              <div className="flex flex-col md:flex-row md:place-content-between">
                 <div className="flex">
                   {user?.displayName ? (
                     <img
                       src={
-                        user.photoURL ||
+                        author.photoURL ||
                         "https://avatars.githubusercontent.com/u/35"
                       }
                       alt=""
@@ -57,7 +57,12 @@ const UserContent = ({ data, user }) => {
                   </div>
                 </div>
                 <div>
-                  <p className="p-3 text-lg font-bold">{createdAt}</p>
+                  <p className="p-3 text-lg font-bold">
+                    <span className="text-lg font-bold p-3 text-red-500">
+                      Created At :
+                    </span>
+                    {createdAt}
+                  </p>
                 </div>
               </div>
             </div>

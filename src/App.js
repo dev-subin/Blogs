@@ -9,7 +9,7 @@ import { db } from "./FirebaseConfig/Firebase";
 import Dashboard from "./pages/Dashboard";
 import UserPosts from "./pages/UserPosts";
 import UserContent from "./pages/UserContent";
-import SinglePost from "./pages/SinglePost";
+import SinglePoster from "./pages/SinglePoster";
 import { Redirect } from "react-router-dom";
 function App() {
   const [loggedUser, setLoggedUser] = useState({});
@@ -37,7 +37,7 @@ function App() {
         <UserPosts data={posts} user={loggedUser} />
       </Route>
       <Route exact path="/:id/post/:blog">
-        <SinglePost
+        <SinglePoster
           data={posts}
           user={loggedUser}
           setLoggedInUser={setLoggedUser}

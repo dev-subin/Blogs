@@ -4,14 +4,14 @@ import { useParams } from "react-router-dom";
 import ScrollToTop from "react-scroll-to-top";
 import MDEditor from "@uiw/react-md-editor";
 
-const SinglePost = ({ data, user }) => {
+const SinglePoster = ({ data, user }) => {
   console.log(data);
   const { blog } = useParams();
 
   const _mapData = data.filter((res) => res.title === blog);
   console.log(_mapData);
   return (
-    <div className="flex justify-center items-center border-2 bg-gray-100 min-h-screen ">
+    <div className="flex justify-center items-center border-2 bg-gray-100 min-h-screen">
       <ScrollToTop smooth top={100} color="red" width="35px" />
       {_mapData.length > 0 ? (
         _mapData.map(({ title, content, author, image, createdAt }) => (
@@ -19,10 +19,10 @@ const SinglePost = ({ data, user }) => {
             <div className="border-gray-400 text-2xl w-[400px] md:w-[900px] bg-white shadow-lg  rounded-xl">
               <div>
                 <div className="w-full p-5">
-                  <img src={image} alt="" />
+                  <img src={image} alt="" className="rounded-lg" />
                 </div>
                 <div>
-                  <h1 className="text-black text-center font-bold text-xl md:text-2xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
+                  <h1 className="text-black text-center font-bold text-xl md:text-5xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
                     {title}
                   </h1>
                 </div>
@@ -40,7 +40,7 @@ const SinglePost = ({ data, user }) => {
                   }}
                 />
               </div>
-              <div className="flex flex-col md:flex-row">
+              <div className="flex flex-col md:flex-row md:place-content-between">
                 <div className="flex">
                   {user?.displayName && (
                     <img
@@ -60,7 +60,12 @@ const SinglePost = ({ data, user }) => {
                   </div>
                 </div>
                 <div>
-                  <p className="p-3 text-lg font-bold">{createdAt}</p>
+                  <p className="p-3 text-lg font-bold">
+                    <span className="text-lg font-bold p-3 text-red-500">
+                      Created At :
+                    </span>
+                    {createdAt}
+                  </p>
                 </div>
               </div>
             </div>
@@ -73,4 +78,4 @@ const SinglePost = ({ data, user }) => {
   );
 };
 
-export default SinglePost;
+export default SinglePoster;
