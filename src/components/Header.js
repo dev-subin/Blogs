@@ -28,7 +28,7 @@ const Header = ({ user, setLoggedInUser }) => {
           <div>
             <button className="text-xl md:ml-4 md:mr-5 h-10 w-24 md:w-36 text-black mt-3 rounded-lg hover:bg-gray-200 ">
               <Link
-                to={user?.displayName ? null : "/login"}
+                to={user?.displayName ? "" : "/login"}
                 onClick={() => {
                   setIsOpen(!isOpen);
                 }}
