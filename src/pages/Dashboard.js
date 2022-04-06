@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 const Dashboard = ({ data }) => {
+  console.log(data);
   const history = useHistory();
   return (
     <div className="h-screen flex justify-center items-center flex-col bg-gray-100 overflow-scroll">
@@ -12,11 +13,12 @@ const Dashboard = ({ data }) => {
               className="bg-white tracking-wide"
               onClick={() => history.push(`/${title}/post`)}
             >
-              <div className=" w-[400px] md:w-[700px] rounded-lg ">
-                <div className="border-2 h-auto text-left pl-5 font-bold text-lg text-black  pt-4 rounded-lg">
+              <div className=" w-[400px] md:w-[700px] rounded-lg flex place-content-between">
+                <div className=" h-auto text-left pl-5 font-bold text-lg text-black  pt-4 rounded-lg w-full">
                   <p
                     className="text-black mb-5
              text-xl cursor-pointer mt-5 "
+                    key={title}
                   >
                     {title}
                   </p>
@@ -26,7 +28,7 @@ const Dashboard = ({ data }) => {
           );
         })
       ) : (
-        <h1 className="font-bold text-2xl bg-red-500 p-5 rounded-lg text-white animate-ping">
+        <h1 className="font-bold text-2xl bg-red-500 p-5 text-center rounded-lg text-white animate-ping">
           No data found....!🙂
         </h1>
       )}

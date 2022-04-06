@@ -5,7 +5,6 @@ import MDEditor from "@uiw/react-md-editor";
 const UserContent = ({ data, user }) => {
   const { id } = useParams();
   const mapData = data.filter((res) => res.title === id);
-  console.log(mapData);
 
   return (
     <div className="flex justify-center items-center  overflow-scroll  border-2 bg-gray-100 min-h-screen ">
@@ -15,10 +14,18 @@ const UserContent = ({ data, user }) => {
             <div className="border-gray-400 text-2xl w-[400px] md:w-[900px]  bg-white rounded-lg ">
               <div>
                 <div className="w-full p-5 md:flex md:justify-center md:items-center">
-                  <img src={image} alt="" className="rounded-lg" />
+                  <img
+                    key="{image}"
+                    src={image}
+                    alt=""
+                    className="rounded-lg"
+                  />
                 </div>{" "}
                 <div>
-                  <h1 className="text-black text-center font-bold text-xl md:text-5xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
+                  <h1
+                    className="text-black text-center font-bold text-xl md:text-5xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800"
+                    key="{title}"
+                  >
                     {title}
                   </h1>
                 </div>
@@ -26,6 +33,7 @@ const UserContent = ({ data, user }) => {
               <div className="">
                 <p className="p-5 text-black italic tracking-wide leading-loose">
                   <MDEditor.Markdown
+                    key="{content}"
                     source={content}
                     style={{
                       color: "black",
@@ -41,6 +49,7 @@ const UserContent = ({ data, user }) => {
                 <div className="flex">
                   {user?.displayName ? (
                     <img
+                      key="{author.photoURL}"
                       src={
                         author.photoURL ||
                         "https://avatars.githubusercontent.com/u/35"
@@ -52,12 +61,14 @@ const UserContent = ({ data, user }) => {
                   <div>
                     <p className="p-2 text-black font-bold">
                       Authored By :{" "}
-                      <span className="text-red-400 underline">{author}</span>
+                      <span className="text-red-400 underline" key="{author}">
+                        {author}
+                      </span>
                     </p>
                   </div>
                 </div>
                 <div>
-                  <p className="p-3 text-lg font-bold">
+                  <p className="p-3 text-lg font-bold" key="{createdAt}">
                     <span className="text-lg font-bold p-3 text-red-500">
                       Created At :
                     </span>

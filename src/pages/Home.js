@@ -10,12 +10,13 @@ function Home({ data, user }) {
     <div className="flex justify-center items-center flex-col border-2 bg-gray-200 dark:bg-[#012346] min-h-screen overflow-hidden">
       <ScrollToTop smooth top={100} color="red" width="35px" />
       {data.length > 0 ? (
-        data.map(({ title, author, image, createdAt }) => (
+        data.map(({ title, author, image, createdAt, userImage }) => (
           <div className="mt-4">
             <div className="  border-2 text-2xl w-[400px] md:w-[900px] bg-white shadow-2xl shadow-cyan-500/50 rounded-xl cursor-pointer h-auto md:h-auto  ">
               <div onClick={() => history.push(`/${author}/post/${title}`)}>
                 <div className="w-full p-5 min-h-56 rounded-xl flex justify-center items-center">
                   <img
+                    key={image}
                     src={image}
                     alt=""
                     height="200px"
@@ -23,7 +24,10 @@ function Home({ data, user }) {
                   />
                 </div>
                 <div>
-                  <h1 className="text-black text-center font-bold text-2xl md:text-5xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800">
+                  <h1
+                    className="text-black text-center font-bold text-2xl md:text-5xl font-seri mb-5 italic tracking-wide hover:underline hover:text-blue-800"
+                    key={title}
+                  >
                     {title}
                   </h1>
                 </div>
@@ -34,7 +38,7 @@ function Home({ data, user }) {
                     <div>
                       <img
                         src={
-                          user.photoURL ||
+                          userImage ||
                           "https://avatars.githubusercontent.com/u/35"
                         }
                         alt=""
@@ -44,7 +48,10 @@ function Home({ data, user }) {
                     <div>
                       <p className="p-2 text-black font-bold text-lg md:text-xl">
                         Authored By :{" "}
-                        <span className="text-red-400 hover:underline italic">
+                        <span
+                          className="text-red-400 hover:underline italic"
+                          key={author}
+                        >
                           {author}
                         </span>
                       </p>
@@ -52,7 +59,7 @@ function Home({ data, user }) {
                   </div>
                 </div>
                 <div>
-                  <p className="p-3 text-lg font-bold">
+                  <p className="p-3 text-lg font-bold" key={createdAt}>
                     <span className="text-lg font-bold p-3 text-red-500">
                       Created At :
                     </span>

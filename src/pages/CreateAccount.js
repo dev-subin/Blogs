@@ -13,10 +13,13 @@ function CreateAccount({ setLoggedInUser }) {
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [phoneErr, setPhoneErr] = useState("");
+  const [phoneLength, setPhoneLength] = useState("");
+  const [loader, setLoader] = useState(false);
   const history = useHistory();
 
   const handleSubmit = (e) => {
-    <Plane ariaLabel="loading-indicator" />;
+    setLoader(!loader);
     e.preventDefault();
     if (username.length === 0) {
       setUserError("Username is empty...");
@@ -36,6 +39,18 @@ function CreateAccount({ setLoggedInUser }) {
       setPhoneError("Phone number is empty...");
       setTimeout(() => {
         setPhoneError("");
+      }, 3000);
+    }
+    if (phone.length < 10) {
+      setPhoneErr("valid Phone Number...");
+      setTimeout(() => {
+        setPhoneErr("");
+      }, 3000);
+    }
+    if (phone.length > 10) {
+      setPhoneLength("please Enter Valid Phone Number...");
+      setTimeout(() => {
+        setPhoneLength("");
       }, 3000);
     }
     if (password.length === 0) {
@@ -63,7 +78,7 @@ function CreateAccount({ setLoggedInUser }) {
     // setPhone("");
   };
   const handleClick = () => {
-    <Plane ariaLabel="loading-indicator" />;
+    setLoader(!loader);
     if (username.length === 0) {
       setUserError("Username is empty...");
       setTimeout(() => {
@@ -82,6 +97,12 @@ function CreateAccount({ setLoggedInUser }) {
       setPhoneError("Phone number is empty...");
       setTimeout(() => {
         setPhoneError("");
+      }, 3000);
+    }
+    if (phone.length < 10 && phone.length > 10) {
+      setPhoneErr("valid Phone Number...");
+      setTimeout(() => {
+        setPhoneErr("");
       }, 3000);
     }
     if (password.length === 0) {
@@ -176,12 +197,24 @@ function CreateAccount({ setLoggedInUser }) {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className={`text-left h-10 md:h-14 border-2 p-5 focus:border-blue-700 rounded-lg outline-none w-full text-lg md:text-xl  text-black ${
-                  phoneError && " border-red-500"
+                  ((phoneError && " border-red-500",
+                  phoneErr && "border-red-500"),
+                  phoneLength && "border-red-500")
                 }`}
               />
               {phoneError && (
                 <p className=" text-red-500 font-bold p-2 text-lg rounded-lg">
                   {phoneError}
+                </p>
+              )}
+              {phoneErr && (
+                <p className=" text-red-500 font-bold p-2 text-lg rounded-lg">
+                  {phoneErr}
+                </p>
+              )}
+              {phoneLength && (
+                <p className=" text-red-500 font-bold p-2 text-lg rounded-lg">
+                  {phoneLength}
                 </p>
               )}
             </div>
@@ -208,7 +241,11 @@ function CreateAccount({ setLoggedInUser }) {
                 className="border-2 h-10 md:h-14 outline-black bg-blue-700 w-56  md:w-72 text-white font-bold  text-lg md:text-2xl rounded-lg"
                 onClick={handleClick}
               >
-                Signup
+                {loader ? (
+                  <span className="text-white animate-bounce">Loading....</span>
+                ) : (
+                  "Signup"
+                )}
               </button>
             </div>
           </form>

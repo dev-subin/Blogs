@@ -10,10 +10,12 @@ function CreatePost({ loggedInUser }) {
   const [heading, setHeading] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
+  const [loader, setLoader] = useState(false);
   const history = useHistory();
   const date = new Date();
 
   const handleSubmit = (e) => {
+    setLoader(!loader);
     e.preventDefault();
     storage
       .ref(`/image/${image.name}`)
@@ -36,7 +38,7 @@ function CreatePost({ loggedInUser }) {
     history.push("/home");
   };
   const handleClick = () => {
-    <Plane ariaLabel="loading-indicator" />;
+    setLoader(!loader);
     storage
       .ref(`/image/${image.name}`)
       .put(image)
@@ -113,7 +115,11 @@ function CreatePost({ loggedInUser }) {
           onClick={handleClick}
           className="border-2 bg-blue-700 w-56 md:w-72 text-white font-bold text-lg  md:text-2xl rounded-lg h-10 md:h-14"
         >
-          Publish Your Post
+          {loader ? (
+            <span className="text-white aniamte-pulse">Loading...</span>
+          ) : (
+            "publish your post"
+          )}
         </button>
       </div>
     </div>
