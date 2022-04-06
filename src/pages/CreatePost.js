@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { db, storage } from "../FirebaseConfig/Firebase";
 import { useHistory } from "react-router-dom";
-import { Plane } from "react-loader-spinner";
 import MdEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
 
 function CreatePost({ loggedInUser }) {
-  console.log(loggedInUser);
   const [heading, setHeading] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);

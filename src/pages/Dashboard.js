@@ -2,7 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 const Dashboard = ({ data }) => {
-  console.log(data);
   const history = useHistory();
   return (
     <div className="h-screen flex justify-center items-center flex-col bg-gray-100 overflow-scroll">

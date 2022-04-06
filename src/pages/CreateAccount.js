@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { auth, db } from "../FirebaseConfig/Firebase";
 import { useHistory } from "react-router-dom";
-import { Plane } from "react-loader-spinner";
 
 function CreateAccount({ setLoggedInUser }) {
   const [username, setUsername] = useState("");
