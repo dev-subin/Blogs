@@ -16,7 +16,6 @@ function App() {
   const [posts, setPosts] = useState([]);
   const dispatchLoggedInUser = (props) => {
     setLoggedUser(props);
-    console.log(setLoggedUser);
   };
 
   useEffect(() => {
